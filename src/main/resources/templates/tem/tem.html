@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Hello</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<div th:replace="~{tem/header.html :: header}"></div>
+	
+	
+	<div th:insert="~{tem/header.html :: header}"></div>
+	
+	<div th:include="~{tem/header.html :: header}"></div>
+	
+	<!--/* replace, insert, include 비교해서 설명 */-->
+
+	<p th:text="${message}">안녕하세요. 손님</p>
+
+	<input type="text" id="userId"
+		th:value="${userId} + ' 님의 이름은 ' + ${userName}" />
+
+	<div th:if="${isLogin}">
+		<p>
+			환영합니다, <span th:text="${userName}"></span>님!
+		</p>
+	</div>
+
+	<h1 th:text="${messag2} ?: '여기는 그냥22'">여기는 그냥</h1>
+
+	<div th:each="user : ${names}">
+		<span th:text="'user name is: ' + ${user}">user name</span>
+	</div>
+
+</body>
+</html>
